@@ -3,6 +3,7 @@
 body {
     background: linear-gradient(to bottom, #D4CAED, #F8F6FF);
     color: #333333;
+    min-height: 100vh;
 }
 
 body.dark-mode {
