@@ -1,5 +1,6 @@
 ---
-
+import '../styles/global.css';
+import Layout from '../layouts/Layout.astro';
 ---
 
 <html lang="en">
@@ -11,6 +12,14 @@
 		<title>Astro</title>
 	</head>
 	<body>
-		<h1>Astro</h1>
+		<Layout>
+			<img src="/yo.jpeg" alt="Foto de perfil" width="200" />
+			<h2>Desarrollador Fullstack</h2>
+			<h3>Sobre mi</h3>
+			<div>
+				<p><strong>¡Hola!</strong> Soy un desarrollador web full-stack de Uruguay con experiencia en diversos proyectos en toda Latinoamérica. Estoy especializado en una amplia gama de tecnologías y lenguajes, como PHP, Node.js, HTML5, CSS3, JavaScript, jQuery, Bootstrap y Responsive Design, entre otros.</p>
+				<p>Mi pasión por emprender e innovar me impulsa a buscar constantemente soluciones y estar al tanto de las últimas tecnologías. Soy autodidacta, lo que significa que siempre estoy aprendiendo y adaptándome a los avances del campo.</p>
+			</div>
+		</Layout>
 	</body>
 </html>
