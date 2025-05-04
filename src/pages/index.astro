@@ -80,7 +80,14 @@ import Layout from '../layouts/Layout.astro';
 		if (toggleBtn) {
 			toggleBtn.onclick = toggleMode;
 		}
-		// Aplica el color inicial (modo claro por defecto)
 		setLight();
 	</script>
+	<footer class="w-full flex justify-center items-center gap-8 py-8">
+		<a href="https://www.linkedin.com/in/tu-perfil" target="_blank" rel="noopener" aria-label="LinkedIn" class="text-gray-800 dark:text-blue-300 hover:text-blue-600 dark:hover:text-blue-400 text-2xl transition-colors duration-200 flex items-center gap-2">
+			<i class="fab fa-linkedin"></i>
+		</a>
+		<a href="mailto:me@chelo.xyz" aria-label="Email" class="text-gray-800 dark:text-blue-300 hover:text-blue-600 dark:hover:text-blue-400 text-2xl transition-colors duration-200 flex items-center gap-2">
+			<i class="fas fa-envelope"></i>
+		</a>
+	</footer>
 </Layout>
