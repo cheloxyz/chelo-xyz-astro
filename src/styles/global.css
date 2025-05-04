@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin '@tailwindcss/typography';
 
 body {
     background: linear-gradient(to bottom, #D4CAED, #F8F6FF);
@@ -19,4 +20,27 @@ body.dark-mode {
 
 body.dark-mode .about-card {
     background: rgba(255, 255, 255, 0.05);
+}
+
+.prose,
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6,
+.prose p {
+    color: #333333;
+}
+
+
+body.dark-mode .prose,
+body.dark-mode .prose h1,
+body.dark-mode .prose h2,
+body.dark-mode .prose h3,
+body.dark-mode .prose h4,
+body.dark-mode .prose h5,
+body.dark-mode .prose h6,
+body.dark-mode p {
+    color: #ffffffdd;
 }
