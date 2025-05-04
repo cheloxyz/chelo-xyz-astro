@@ -1,26 +1,19 @@
 ---
-import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
-const posts = (await getCollection("blog")).sort(
-	(a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
-);
+import { getSortedBlogPosts } from "../../utils/getPosts";
+import type { Post } from "../../types/post";
+const posts = await getSortedBlogPosts();
 ---
 
 <Layout>
 	<section>
 		<ul>
 			{
-				posts.map((post) => (
+				posts.map((post: Post) => (
 					<li>
 						<a href={`/blog/${post.id}/`}>
-							<img
-								width={720}
-								height={360}
-								src={post.data.heroImage}
-								alt=""
-							/>
 							<h4 class="title">{post.data.title}</h4>
-							<p class="date">{post.data.pubDate}</p>
+							<p class="date">{post.data.date}</p>
 						</a>
 					</li>
 				))
