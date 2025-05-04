@@ -1,35 +1,21 @@
 @import "tailwindcss";
 
-
-body {}
-
+body {
+    background: linear-gradient(to bottom, #D4CAED, #F8F6FF);
+    color: #333333;
+}
 
 body.dark-mode {
     background: linear-gradient(to bottom, #2D1B36, #0F0F0F);
-    color: #f0f0f0;
-}
-
-body.dark-mode h1,
-body.dark-mode h2,
-body.dark-mode h3,
-body.dark-mode h4,
-body.dark-mode h5,
-body.dark-mode h6 {
     color: #ffffffdd;
 }
 
-body.dark-mode p {
-    color: #ffffffdd;
+.about-card {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
 }
 
-body.dark-mode a {
-    color: #ffffffdd;
-}
-
-body.dark-mode a:hover {
-    color: #ffffffdd;
-}
-
-body.dark-mode img {
-    border-color: #ffffffdd;
+body.dark-mode .about-card {
+    background: rgba(255, 255, 255, 0.05);
 }
