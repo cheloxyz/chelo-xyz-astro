@@ -1,35 +1,13 @@
 ---
-import '../styles/global.css';
 import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout>
-	<div class="min-h-screen flex flex-col items-center" id="main-bg">
-		<header class="mt-10 mb-2 text-center">
-			<h1 class="text-3xl font-bold mb-1">Marcelo Chelo</h1>
-			<h2 class="text-lg font-medium mb-4">Desarrollador Fullstack</h2>
-			<nav class="mb-6 flex flex-col items-center">
-				<ul class="flex gap-6 justify-center text-base font-medium mb-2">
-					<li><a href="/" class="transition">Home</a></li>
-					<li><a href="/blog" class="transition">Blog</a></li>
-				</ul>
-			</nav>
-		</header>
-		<section id="about" class="flex flex-col md:flex-row items-center max-w-4xl rounded-xl shadow p-8 md:p-16 gap-8 mx-6 about-card">
-			<img src="/yo.jpeg" alt="Foto de perfil" width="220" height="220" class="rounded-full border-4 shadow mb-6 md:mb-0 md:mr-8 object-cover" />
-			<div class="text-center md:text-left flex-1">
-				<p class="mb-4 text-lg"><strong>¡Hola!</strong> Soy un desarrollador web full-stack de Uruguay con experiencia en diversos proyectos en toda Latinoamérica. Estoy especializado en una amplia gama de tecnologías y lenguajes, como PHP, Node.js, HTML5, CSS3, JavaScript, jQuery, Bootstrap y Responsive Design, entre otros.</p>
-				<p class="text-lg">Mi pasión por emprender e innovar me impulsa a buscar constantemente soluciones y estar al tanto de las últimas tecnologías. Soy autodidacta, lo que significa que siempre estoy aprendiendo y adaptándome a los avances del campo.</p>
-			</div>
-		</section>
-	</div>
-	
-	<footer class="w-full flex justify-center items-center gap-8 py-8">
-		<a href="https://www.linkedin.com/in/tu-perfil" target="_blank" rel="noopener" aria-label="LinkedIn" class="text-2xl transition-colors duration-200 flex items-center gap-2">
-			<i class="fab fa-linkedin"></i>
-		</a>
-		<a href="mailto:me@chelo.xyz" aria-label="Email" class="text-2xl transition-colors duration-200 flex items-center gap-2">
-			<i class="fas fa-envelope"></i>
-		</a>
-	</footer>
+	<section id="about" class="flex flex-col md:flex-row items-center max-w-4xl rounded-xl shadow p-8 md:p-16 gap-8 mx-6 about-card">
+		<img src="/yo.jpeg" alt="Foto de perfil" width="220" height="220" class="rounded-full border-4 shadow mb-6 md:mb-0 md:mr-8 object-cover" />
+		<div class="text-center md:text-left flex-1">
+			<p class="mb-4 text-lg"><strong>¡Hola!</strong> Soy un desarrollador web full-stack de Uruguay con experiencia en diversos proyectos en toda Latinoamérica. Estoy especializado en una amplia gama de tecnologías y lenguajes, como PHP, Node.js, HTML5, CSS3, JavaScript, jQuery, Bootstrap y Responsive Design, entre otros.</p>
+			<p class="text-lg">Mi pasión por emprender e innovar me impulsa a buscar constantemente soluciones y estar al tanto de las últimas tecnologías. Soy autodidacta, lo que significa que siempre estoy aprendiendo y adaptándome a los avances del campo.</p>
+		</div>
+	</section>
 </Layout>
