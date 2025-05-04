@@ -3,23 +3,84 @@ import '../styles/global.css';
 import Layout from '../layouts/Layout.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<Layout>
-			<img src="/yo.jpeg" alt="Foto de perfil" width="200" />
-			<h2>Desarrollador Fullstack</h2>
-			<h3>Sobre mi</h3>
-			<div>
-				<p><strong>¡Hola!</strong> Soy un desarrollador web full-stack de Uruguay con experiencia en diversos proyectos en toda Latinoamérica. Estoy especializado en una amplia gama de tecnologías y lenguajes, como PHP, Node.js, HTML5, CSS3, JavaScript, jQuery, Bootstrap y Responsive Design, entre otros.</p>
-				<p>Mi pasión por emprender e innovar me impulsa a buscar constantemente soluciones y estar al tanto de las últimas tecnologías. Soy autodidacta, lo que significa que siempre estoy aprendiendo y adaptándome a los avances del campo.</p>
+<Layout>
+	<div class="min-h-screen flex flex-col items-center" id="main-bg">
+		<header class="mt-10 mb-2 text-center">
+			<h1 class="text-3xl font-bold mb-1" style="color:inherit;">Marcelo Chelo</h1>
+			<h2 class="text-lg font-medium mb-4" style="color:#2a2a40; color:inherit;">Desarrollador Fullstack</h2>
+			<nav class="mb-6 flex flex-col items-center">
+				<ul class="flex gap-6 justify-center text-base font-medium mb-2">
+					<li><a href="/" class="hover:text-blue-400 transition" style="color:inherit;">Home</a></li>
+					<li><a href="/blog" class="hover:text-blue-400 transition" style="color:inherit;">Blog</a></li>
+					<li><a href="https://www.linkedin.com/in/tu-perfil" target="_blank" rel="noopener" class="hover:text-blue-400 transition" style="color:inherit;">LinkedIn</a></li>
+					<li><a href="mailto:me@chelo.xyz" class="hover:text-blue-400 transition" style="color:inherit;">Contacto</a></li>
+				</ul>
+			</nav>
+		</header>
+		<section id="about" class="flex flex-col md:flex-row items-center max-w-4xl w-full rounded-xl shadow p-8 md:p-16 gap-8 about-card">
+			<img src="/yo.jpeg" alt="Foto de perfil" width="220" height="220" class="rounded-full border-4 border-blue-100 shadow mb-6 md:mb-0 md:mr-8 object-cover" />
+			<div class="text-center md:text-left flex-1">
+				<p class="mb-4 text-lg"><strong>¡Hola!</strong> Soy un desarrollador web full-stack de Uruguay con experiencia en diversos proyectos en toda Latinoamérica. Estoy especializado en una amplia gama de tecnologías y lenguajes, como PHP, Node.js, HTML5, CSS3, JavaScript, jQuery, Bootstrap y Responsive Design, entre otros.</p>
+				<p class="text-lg">Mi pasión por emprender e innovar me impulsa a buscar constantemente soluciones y estar al tanto de las últimas tecnologías. Soy autodidacta, lo que significa que siempre estoy aprendiendo y adaptándome a los avances del campo.</p>
 			</div>
-		</Layout>
-	</body>
-</html>
+		</section>
+		<!-- Botón flotante de modo claro/oscuro -->
+		<button id="toggle-mode" aria-label="Cambiar modo claro/oscuro" class="fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full shadow-lg flex items-center justify-center bg-white border border-gray-300 text-gray-700 hover:bg-gray-100 transition text-2xl">
+			<span id="mode-icon">🌙</span>
+		</button>
+	</div>
+	<style>
+		body.dark-mode {
+			background: #232136 !important;
+			color: #E6E6FA !important;
+		}
+		.about-card {
+			background: #fff;
+			color: #222;
+			transition: background 0.3s, color 0.3s;
+		}
+		body.dark-mode .about-card {
+			background: #2a2a40 !important;
+			color: #E6E6FA !important;
+		}
+		body.dark-mode a {
+			color: #B4AEE8 !important;
+		}
+		body.dark-mode h2 {
+			color: #B4AEE8 !important;
+		}
+		body.dark-mode h1 {
+			color: #E6E6FA !important;
+		}
+	</style>
+	<script>
+		// Estado del modo: true = oscuro, false = claro
+		let darkMode = false;
+		function setLight() {
+			document.body.classList.remove('dark-mode');
+			document.body.style.background = '#E6E6FA';
+			document.body.style.color = '#222';
+			const icon = document.getElementById('mode-icon');
+			if (icon) icon.textContent = '🌙';
+			darkMode = false;
+		}
+		function setDark() {
+			document.body.classList.add('dark-mode');
+			document.body.style.background = '#232136';
+			document.body.style.color = '#E6E6FA';
+			const icon = document.getElementById('mode-icon');
+			if (icon) icon.textContent = '☀️';
+			darkMode = true;
+		}
+		const toggleBtn = document.getElementById('toggle-mode');
+		function toggleMode() {
+			if (darkMode) setLight();
+			else setDark();
+		}
+		if (toggleBtn) {
+			toggleBtn.onclick = toggleMode;
+		}
+		// Aplica el color inicial (modo claro por defecto)
+		setLight();
+	</script>
+</Layout>

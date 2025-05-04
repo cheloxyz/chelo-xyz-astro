@@ -1,5 +1,5 @@
 ---
-// Layout básico sin estilos
+// Layout básico sin estilos, ahora con colores lavanda pastel y modo oscuro personalizado
 ---
 <html lang="es">
   <head>
@@ -7,24 +7,24 @@
     <meta name="viewport" content="width=device-width" />
     <title>Mi sitio personal</title>
   </head>
-  <body>
-    <button id="light-mode">Modo Claro</button>
-    <button id="dark-mode">Modo Oscuro</button>
+  <body style="background: #E6E6FA; color: #222; transition: background 0.3s, color 0.3s;">
     <main>
       <slot />
     </main>
     <script>
       const lightBtn = document.getElementById('light-mode');
       const darkBtn = document.getElementById('dark-mode');
+      function setLight() {
+        document.body.style.background = '#E6E6FA';
+        document.body.style.color = '#222';
+      }
+      function setDark() {
+        document.body.style.background = '#3D3D14';
+        document.body.style.color = '#E6E6FA';
+      }
       if (lightBtn && darkBtn) {
-        lightBtn.onclick = () => {
-          document.body.style.background = '#fff';
-          document.body.style.color = '#000';
-        };
-        darkBtn.onclick = () => {
-          document.body.style.background = '#222';
-          document.body.style.color = '#fff';
-        };
+        lightBtn.onclick = setLight;
+        darkBtn.onclick = setDark;
       }
     </script>
   </body>
