@@ -1,13 +1,13 @@
 @import "tailwindcss";
 @plugin '@tailwindcss/typography';
 
-body {
+html {
     background: linear-gradient(to bottom, #D4CAED, #F8F6FF);
     color: #333333;
     min-height: 100vh;
 }
 
-body.dark-mode {
+html.dark-mode {
     background: linear-gradient(to bottom, #2D1B36, #0F0F0F);
     color: #ffffffdd;
 }
@@ -18,7 +18,7 @@ body.dark-mode {
     -webkit-backdrop-filter: blur(12px);
 }
 
-body.dark-mode .about-card {
+html.dark-mode .about-card {
     background: rgba(255, 255, 255, 0.05);
 }
 
@@ -33,14 +33,13 @@ body.dark-mode .about-card {
     color: #333333;
 }
 
-
-body.dark-mode .prose,
-body.dark-mode .prose h1,
-body.dark-mode .prose h2,
-body.dark-mode .prose h3,
-body.dark-mode .prose h4,
-body.dark-mode .prose h5,
-body.dark-mode .prose h6,
-body.dark-mode p {
+html.dark-mode .prose,
+html.dark-mode .prose h1,
+html.dark-mode .prose h2,
+html.dark-mode .prose h3,
+html.dark-mode .prose h4,
+html.dark-mode .prose h5,
+html.dark-mode .prose h6,
+html.dark-mode p {
     color: #ffffffdd;
 }
