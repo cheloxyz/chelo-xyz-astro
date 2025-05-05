@@ -7,6 +7,7 @@ export interface Post {
       date: Date;
       description: string;
       tags: string[];
-      image: string;
+      image: string[];
+      draft: boolean;
     };
   }

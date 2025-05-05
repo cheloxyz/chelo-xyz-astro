@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import Analytics from '@vercel/analytics/astro'
 ---
 
 <html lang="es">
@@ -25,15 +26,26 @@ import '../styles/global.css';
     <header class="mt-10 mb-2 text-center w-full">
       <h1 class="text-3xl font-bold mb-1">Marcelo Aguirre</h1>
       <h2 class="text-lg font-medium mb-4">Desarrollador Fullstack</h2>
-      <nav class="mb-6 flex flex-col items-center">
+      <nav class="mb-6 flex flex-col items-center" x-data="{ activeTab: window.location.pathname === '/' ? 'home' : 'blog' }">
         <ul class="flex gap-6 justify-center text-base font-medium mb-2">
-          <li><a href="/" class="transition">Home</a></li>
-          <li><a href="/blog" class="transition">Blog</a></li>
+          <li>
+            <a href="/" 
+               class="transition px-4 py-2 rounded-lg"
+               :class="{ 'bg-gray-400 dark:bg-gray-400': activeTab === 'home' }"
+               @click="activeTab = 'home'">Home</a>
+          </li>
+          <li>
+            <a href="/blog" 
+               class="transition px-4 py-2 rounded-lg"
+               :class="{ 'bg-gray-400 dark:bg-gray-400': activeTab === 'blog' }"
+               @click="activeTab = 'blog'">Blog</a>
+          </li>
         </ul>
       </nav>
     </header>
     <main class="flex flex-col items-center flex-1 w-full">
       <slot />
+      <Analytics />
     </main>
     <footer class="w-full flex justify-center items-center gap-8 py-8">
       <a href="https://www.linkedin.com/in/chelo-xyz" target="_blank" rel="noopener" aria-label="LinkedIn" class="text-2xl transition-colors duration-200 flex items-center gap-2">
