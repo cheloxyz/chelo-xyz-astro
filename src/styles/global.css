@@ -1,13 +1,13 @@
 @import "tailwindcss";
 @plugin '@tailwindcss/typography';
 
-html {
+html, body {
     background: linear-gradient(to bottom, #D4CAED, #F8F6FF);
     color: #333333;
     min-height: 100vh;
 }
 
-html.dark-mode {
+html.dark-mode, body.dark-mode {
     background: linear-gradient(to bottom, #2D1B36, #0F0F0F);
     color: #ffffffdd;
 }

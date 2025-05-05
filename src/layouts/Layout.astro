@@ -1,9 +1,21 @@
 ---
-import '../styles/global.css';
-import Analytics from '@vercel/analytics/astro'
+import "../styles/global.css";
+import Analytics from "@vercel/analytics/astro";
 ---
 
-<html lang="es">
+<html
+  lang="es"
+  x-data="{ theme: localStorage.getItem('theme') || 'light' }"
+  x-init="
+    $watch('theme', value => {
+      localStorage.setItem('theme', value);
+      document.body.classList.toggle('dark-mode', value === 'dark');
+    });
+    // Aplicar el tema inicial
+    document.body.classList.toggle('dark-mode', theme === 'dark');
+  "
+  :class="{ 'dark-mode': theme === 'dark' }"
+>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
@@ -15,39 +27,35 @@ import Analytics from '@vercel/analytics/astro'
       referrerpolicy="no-referrer"
     />
     <!-- Alpine.js -->
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <script>
-      // Script inline para evitar el parpadeo del modo oscuro
-      (function() {
-        const darkMode = localStorage.getItem('darkMode') === 'true';
-        if (darkMode) {
-          document.documentElement.classList.add('dark-mode');
-        }
-      })();
-    </script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
   </head>
-  <body x-data="{ darkMode: localStorage.getItem('darkMode') === 'true' }" 
-        x-init="$watch('darkMode', value => {
-          localStorage.setItem('darkMode', value);
-          document.documentElement.classList.toggle('dark-mode', value);
-        })"
-        :class="{ 'dark-mode': darkMode }">
+  <body>
     <header class="mt-10 mb-2 text-center w-full">
       <h1 class="text-3xl font-bold mb-1">Marcelo Aguirre</h1>
       <h2 class="text-lg font-medium mb-4">Desarrollador Fullstack</h2>
-      <nav class="mb-6 flex flex-col items-center" x-data="{ activeTab: window.location.pathname === '/' ? 'home' : 'blog' }">
+      <nav
+        class="mb-6 flex flex-col items-center"
+        x-data="{ activeTab: window.location.pathname === '/' ? 'home' : 'blog' }"
+      >
         <ul class="flex gap-6 justify-center text-base font-medium mb-2">
           <li>
-            <a href="/" 
-               class="transition px-4 py-2 rounded-lg"
-               :class="{ 'bg-gray-400 dark:bg-gray-400': activeTab === 'home' }"
-               @click="activeTab = 'home'">Home</a>
+            <a
+              href="/"
+              class="transition px-4 py-2 rounded-lg"
+              :class="{ 'bg-gray-400 dark:bg-gray-400': activeTab === 'home' }"
+              @click="activeTab = 'home'">Home</a
+            >
           </li>
           <li>
-            <a href="/blog" 
-               class="transition px-4 py-2 rounded-lg"
-               :class="{ 'bg-gray-400 dark:bg-gray-400': activeTab === 'blog' }"
-               @click="activeTab = 'blog'">Blog</a>
+            <a
+              href="/blog"
+              class="transition px-4 py-2 rounded-lg"
+              :class="{ 'bg-gray-400 dark:bg-gray-400': activeTab === 'blog' }"
+              @click="activeTab = 'blog'">Blog</a
+            >
           </li>
         </ul>
       </nav>
@@ -57,13 +65,29 @@ import Analytics from '@vercel/analytics/astro'
       <Analytics />
     </main>
     <footer class="w-full flex justify-center items-center gap-8 py-8">
-      <a href="https://www.linkedin.com/in/chelo-xyz" target="_blank" rel="noopener" aria-label="LinkedIn" class="text-2xl transition-colors duration-200 flex items-center gap-2">
+      <a
+        href="https://www.linkedin.com/in/chelo-xyz"
+        target="_blank"
+        rel="noopener"
+        aria-label="LinkedIn"
+        class="text-2xl transition-colors duration-200 flex items-center gap-2"
+      >
         <i class="fab fa-linkedin"></i>
       </a>
-      <a href="https://github.com/chelo91" target="_blank" rel="noopener" aria-label="GitHub" class="text-2xl transition-colors duration-200 flex items-center gap-2">
+      <a
+        href="https://github.com/chelo91"
+        target="_blank"
+        rel="noopener"
+        aria-label="GitHub"
+        class="text-2xl transition-colors duration-200 flex items-center gap-2"
+      >
         <i class="fab fa-github"></i>
       </a>
-      <a href="mailto:me@chelo.xyz" aria-label="Email" class="text-2xl transition-colors duration-200 flex items-center gap-2">
+      <a
+        href="mailto:me@chelo.xyz"
+        aria-label="Email"
+        class="text-2xl transition-colors duration-200 flex items-center gap-2"
+      >
         <i class="fas fa-envelope"></i>
       </a>
     </footer>
@@ -71,10 +95,9 @@ import Analytics from '@vercel/analytics/astro'
       id="toggle-mode"
       aria-label="Cambiar modo claro/oscuro"
       class="bg-white fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full shadow-lg flex items-center justify-center text-2xl"
-      @click="darkMode = !darkMode"
+      @click="theme = theme === 'dark' ? 'light' : 'dark'"
     >
-      <span x-text="darkMode ? '☀️' : '🌙'"></span>
+      <span x-text="theme === 'dark' ? '☀️' : '🌙'"></span>
     </button>
   </body>
 </html>
-
