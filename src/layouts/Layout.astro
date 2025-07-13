@@ -21,6 +21,9 @@ import { ClientRouter } from "astro:transitions";
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>Marcelo Aguirre - Desarrollador Full Stack</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
@@ -34,19 +37,23 @@ import { ClientRouter } from "astro:transitions";
     ></script>
     <ClientRouter />
   </head>
-  <body>
-    <header class="mt-10 mb-2 text-center w-full">
-      <h1 class="text-3xl font-bold mb-1">Marcelo Aguirre</h1>
-      <h2 class="text-lg font-medium mb-4">Desarrollador Fullstack</h2>
-      <nav class="mb-6 flex flex-col items-center">
-        <ul class="flex gap-6 justify-center text-base font-medium mb-2">
+  <body class="min-h-screen flex flex-col">
+    <header class="mt-8 mb-6 text-center w-full px-4">
+      <h1 class="text-4xl md:text-5xl font-bold mb-2 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+        Marcelo Aguirre
+      </h1>
+      <h2 class="text-xl md:text-2xl font-medium mb-6 text-gray-600 dark:text-gray-300">
+        Desarrollador Fullstack
+      </h2>
+      <nav class="mb-8">
+        <ul class="flex gap-4 md:gap-6 justify-center text-base font-medium">
           <li>
             <a
               href="https://www.linkedin.com/in/cheloxyz"
               target="_blank"
               rel="noopener"
               aria-label="LinkedIn"
-              class="text-2xl transition-colors duration-200 flex items-center gap-2"
+              class="text-2xl transition-all duration-300 flex items-center gap-2 p-3 rounded-xl hover:scale-110"
             >
               <i class="fab fa-linkedin"></i>
             </a>
@@ -57,7 +64,7 @@ import { ClientRouter } from "astro:transitions";
               target="_blank"
               rel="noopener"
               aria-label="GitHub"
-              class="text-2xl transition-colors duration-200 flex items-center gap-2"
+              class="text-2xl transition-all duration-300 flex items-center gap-2 p-3 rounded-xl hover:scale-110"
             >
               <i class="fab fa-github"></i>
             </a>
@@ -68,7 +75,7 @@ import { ClientRouter } from "astro:transitions";
               target="_blank"
               rel="noopener"
               aria-label="Telegram"
-              class="text-2xl transition-colors duration-200 flex items-center gap-2"
+              class="text-2xl transition-all duration-300 flex items-center gap-2 p-3 rounded-xl hover:scale-110"
             >
               <i class="fab fa-telegram"></i>
             </a>
@@ -77,7 +84,7 @@ import { ClientRouter } from "astro:transitions";
             <a
               href="mailto:me@chelo.xyz"
               aria-label="Email"
-              class="text-2xl transition-colors duration-200 flex items-center gap-2"
+              class="text-2xl transition-all duration-300 flex items-center gap-2 p-3 rounded-xl hover:scale-110"
             >
               <i class="fas fa-envelope"></i>
             </a>
@@ -85,17 +92,17 @@ import { ClientRouter } from "astro:transitions";
         </ul>
       </nav>
     </header>
-    <main class="flex flex-col items-center flex-1 w-full">
+    <main class="flex flex-col items-center flex-1 w-full px-4 pb-20">
       <slot />
       <Analytics />
     </main>
     <button
       id="toggle-mode"
       aria-label="Cambiar modo claro/oscuro"
-      class="bg-white fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full shadow-lg flex items-center justify-center text-2xl"
+      class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full shadow-lg flex items-center justify-center text-2xl transition-all duration-300 hover:scale-110"
       @click="theme = theme === 'dark' ? 'light' : 'dark'"
     >
-      <span x-text="theme === 'dark' ? '☀️' : '🌙'"></span>
+      <span x-text="theme === 'dark' ? '☀️' : '🌙'" class="transition-transform duration-300"></span>
     </button>
   </body>
 </html>
