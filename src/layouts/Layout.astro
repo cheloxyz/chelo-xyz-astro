@@ -6,14 +6,22 @@ import { ClientRouter } from "astro:transitions";
 
 <html
   lang="es"
-  x-data="{ theme: localStorage.getItem('theme') || 'light' }"
+  x-data="{ 
+    theme: localStorage.getItem('theme') || 'light',
+    language: localStorage.getItem('language') || 'es'
+  }"
   x-init="
     $watch('theme', value => {
       localStorage.setItem('theme', value);
       document.body.classList.toggle('dark-mode', value === 'dark');
     });
+    $watch('language', value => {
+      localStorage.setItem('language', value);
+      document.documentElement.lang = value;
+    });
     // Aplicar el tema inicial
     document.body.classList.toggle('dark-mode', theme === 'dark');
+    document.documentElement.lang = language;
   "
   :class="{ 'dark-mode': theme === 'dark' }"
 >
@@ -43,10 +51,11 @@ import { ClientRouter } from "astro:transitions";
         Marcelo Aguirre
       </h1>
       <h2 class="text-xl md:text-2xl font-medium mb-6 text-gray-600 dark:text-gray-300">
-        Desarrollador Fullstack
+        <span x-show="language === 'es'">Desarrollador Fullstack</span>
+        <span x-show="language === 'en'">Full Stack Developer</span>
       </h2>
       <nav class="mb-8">
-        <ul class="flex gap-4 md:gap-6 justify-center text-base font-medium">
+        <ul class="flex gap-4 md:gap-6 justify-center text-base font-medium items-center">
           <li>
             <a
               href="https://www.linkedin.com/in/cheloxyz"
@@ -88,6 +97,15 @@ import { ClientRouter } from "astro:transitions";
             >
               <i class="fas fa-envelope"></i>
             </a>
+          </li>
+          <li>
+            <button
+              @click="language = language === 'es' ? 'en' : 'es'"
+              class="text-2xl transition-all duration-300 flex items-center gap-2 p-3 rounded-xl hover:scale-110"
+              :title="language === 'es' ? 'Switch to English' : 'Cambiar a Español'"
+            >
+              <span x-text="language === 'es' ? '🇺🇸' : '🇪🇸'" class="transition-all duration-300"></span>
+            </button>
           </li>
         </ul>
       </nav>

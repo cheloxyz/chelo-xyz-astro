@@ -18,19 +18,39 @@ import Layout from "../layouts/Layout.astro";
 		</div>
 		<div class="text-center lg:text-left flex-1 space-y-6">
 			<div class="space-y-4">
-				<p class="text-lg md:text-xl leading-relaxed">
-					<strong class="text-blue-600 dark:text-blue-400">¡Hola!</strong> Soy un desarrollador web full-stack de Uruguay
-					con experiencia en proyectos por toda Latinoamérica. Trabajo con
-					tecnologías modernas como <strong class="text-purple-600 dark:text-purple-400">NestJS</strong>, <strong class="text-blue-600 dark:text-blue-400">NextJS</strong>,
-					<strong class="text-orange-600 dark:text-orange-400">Astro</strong>, <strong class="text-green-600 dark:text-green-400">Supabase</strong>, <strong class="text-blue-500 dark:text-blue-300">PostgreSQL</strong>,
-					<strong class="text-green-500 dark:text-green-300">MongoDB</strong>, <strong class="text-blue-500 dark:text-blue-300">Docker</strong> y <strong class="text-red-600 dark:text-red-400">n8n</strong> para automatización. Mi experiencia con <strong class="text-orange-600 dark:text-orange-400">servidores Linux</strong> me permite implementar despliegues eficientes en entornos de producción.
-				</p>
-				<p class="text-lg md:text-xl leading-relaxed">
-					Mi pasión por emprender e innovar me impulsa a buscar
-					constantemente soluciones y estar al tanto de las últimas
-					tecnologías. Soy autodidacta, por eso siempre estoy aprendiendo
-					y adaptándome a los avances del campo.
-				</p>
+				<!-- Contenido en Español -->
+				<div x-show="language === 'es'">
+					<p class="text-lg md:text-xl leading-relaxed">
+						<strong class="text-blue-600 dark:text-blue-400">¡Hola!</strong> Soy un desarrollador web full-stack de Uruguay
+						con experiencia en proyectos por toda Latinoamérica. Trabajo con
+						tecnologías modernas como <strong class="text-purple-600 dark:text-purple-400">NestJS</strong>, <strong class="text-blue-600 dark:text-blue-400">NextJS</strong>,
+						<strong class="text-orange-600 dark:text-orange-400">Astro</strong>, <strong class="text-green-600 dark:text-green-400">Supabase</strong>, <strong class="text-blue-500 dark:text-blue-300">PostgreSQL</strong>,
+						<strong class="text-green-500 dark:text-green-300">MongoDB</strong>, <strong class="text-blue-500 dark:text-blue-300">Docker</strong> y <strong class="text-red-600 dark:text-red-400">n8n</strong> para automatización. Mi experiencia con <strong class="text-orange-600 dark:text-orange-400">servidores Linux</strong> me permite implementar despliegues eficientes en entornos de producción.
+					</p>
+					<p class="text-lg md:text-xl leading-relaxed">
+						Mi pasión por emprender e innovar me impulsa a buscar
+						constantemente soluciones y estar al tanto de las últimas
+						tecnologías. Soy autodidacta, por eso siempre estoy aprendiendo
+						y adaptándome a los avances del campo.
+					</p>
+				</div>
+				
+				<!-- Contenido en Inglés -->
+				<div x-show="language === 'en'">
+					<p class="text-lg md:text-xl leading-relaxed">
+						<strong class="text-blue-600 dark:text-blue-400">Hello!</strong> I'm a full-stack web developer from Uruguay
+						with experience in projects throughout Latin America. I work with
+						modern technologies like <strong class="text-purple-600 dark:text-purple-400">NestJS</strong>, <strong class="text-blue-600 dark:text-blue-400">NextJS</strong>,
+						<strong class="text-orange-600 dark:text-orange-400">Astro</strong>, <strong class="text-green-600 dark:text-green-400">Supabase</strong>, <strong class="text-blue-500 dark:text-blue-300">PostgreSQL</strong>,
+						<strong class="text-green-500 dark:text-green-300">MongoDB</strong>, <strong class="text-blue-500 dark:text-blue-300">Docker</strong> and <strong class="text-red-600 dark:text-red-400">n8n</strong> for automation. My experience with <strong class="text-orange-600 dark:text-orange-400">Linux servers</strong> allows me to implement efficient deployments in production environments.
+					</p>
+					<p class="text-lg md:text-xl leading-relaxed">
+						My passion for entrepreneurship and innovation drives me to constantly
+						seek solutions and stay up to date with the latest technologies.
+						I'm self-taught, which is why I'm always learning and adapting
+						to advances in the field.
+					</p>
+				</div>
 			</div>
 		</div>
 	</section>
